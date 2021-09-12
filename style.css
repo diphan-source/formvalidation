@@ -1,61 +1,72 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body{
     background-color: #008080;
-    margin: 0;
-    padding: 0;
-    /* min-height: 100vh; */
-}
-
-.container{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 100%;
-    flex: 1;
-    
+    margin: 0;
+}
 
+.container{
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 800px;
 }
 
 .form{
+    padding: 10px 20px;
     background-color: aliceblue;
-    border-radius: 1em;
-    padding: 2em;
-    width: 60%;
-    margin-top: 2em;
-    margin-bottom: 5em;
-    /* position: relative; */
-    margin-right: auto;
-    margin-left: auto;
-    /* height: 100vh; */
 }
 
 .form-control{
-    padding: 5px;
-    width: 100%;
-    position: relative;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
-.form-control input{
+
+.form-control label {
+    display: block;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.form-control input, .form-control select{
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
     display: block;
     width: 100%;
-    padding: 8px;
-    border: none;
-    outline: none;
-    
 }
+
+.form-control input:focus {
+    outline: none;
+}
+
+.form-control.error input {
+    border-color: red
+}
+
+.form-control.success input {
+    border-color: green
+}
+
 .input.success{
     border: green;
 }
 .error{
     color: red;
-    position: absolute;
-    visibility: visible;
-    
+    visibility: visible;   
 }
 
 .form-control i{
@@ -85,6 +96,7 @@ body{
     outline: none;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
     
 }
 
