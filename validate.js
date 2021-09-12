@@ -2,6 +2,7 @@ let form = document.forms['contact']
 let Uname = document.forms['contact']['name']
 let emailEl = document.forms['contact']['email']
 let ageEl = document.forms['contact']['age']
+let tele = document.forms['contact']['tel']
 let passwordEl = document.forms['contact']['password']
 let confirmPasswordEl = document.forms['contact']['password2']
 
@@ -20,6 +21,22 @@ const checkUsername = () => {
     return valid;
 };
 
+const checktel = ()=>{
+    let valid = false;
+    const telephone = tele.value.trim();
+
+    if(!isRequired(telephone)){
+        showError(tele, "telephone is required");
+    }else if(!isValidTel(telephone)){
+        showError(tele,"Telephone should be valid");
+    }else{
+        showSuccess(tele);
+        valid = true;
+    }
+
+    return valid;
+};
+
 const checkAge = () => {
     let valid =  false
     const age = ageEl.value.trim()
@@ -27,7 +44,11 @@ const checkAge = () => {
         showError(ageEl, 'Age field cannot be blank')
     } else if(!isValidAge(age)) {
         showError(ageEl, 'Age can only be a number')
+    }else{
+        showSuccess(age);
+        valid = true;
     }
+    return valid;
 }
 
 
@@ -79,6 +100,11 @@ const checkConfirmPassword = () => {
     }
 
     return valid;
+};
+
+const isValidTel = (telephone) =>{
+    const re = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/ ;
+    return re.test(telephone);
 };
 
 const isEmailValid = (email) => {
@@ -136,7 +162,8 @@ form.addEventListener('submit', function (e) {
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
+        isConfirmPasswordValid = checkConfirmPassword(),
+        isTelValid = checktel();
 
     let isFormValid = isUsernameValid 
 
@@ -168,6 +195,9 @@ form.addEventListener('input', debounce(function (e) {
             break;
         case 'email':
             checkEmail();
+            break;
+        case 'telephone':
+            checktel();
             break;
         case 'password':
             checkPassword();

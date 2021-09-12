@@ -21,12 +21,17 @@ body{
     padding: 1em;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    width: 800px;
+    width: 60%;
+    margin: auto;
 }
 
 .form{
     padding: 10px 20px;
     background-color: aliceblue;
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    
 }
 
 .form-control{
@@ -45,7 +50,7 @@ body{
     padding: 10px;
     margin-bottom: 5px;
     font-size: 14px;
-    display: block;
+    display: flex;
     width: 100%;
 }
 
